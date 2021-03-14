@@ -15,5 +15,6 @@ use App\Http\Controllers\FrontController;
 
 Route::get('/', function () {
     return view('welcome');
+
 });
 

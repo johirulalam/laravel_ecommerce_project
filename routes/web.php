@@ -17,14 +17,3 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/new', 'App\Http\Controllers\FrontController@index');
-Route::get('/hi', [FrontController::class, 'index']);
-Route::get('/user/{id}/{name}', function($id, $name){
-	return ($name);
-})->whereNumber('id')->whereAlpha('name');
-
-Route::get('/she/{id}', function($id){
-	return $id;
-});
-Route::get('/reg', 'App\Http\Controllers\FrontController@reg')->name('reg');
-Route::post('/reg', 'App\Http\Controllers\FrontController@regsubmit');

@@ -9,6 +9,6 @@
         
     </head>
     <body>
-      <button type="submit"><a href="{{route('reg')}}">signUp</a></button>
+      <button type="submit"><a href="">signUp</a></button>
     </body>
 </html>

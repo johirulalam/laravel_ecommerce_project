@@ -52,6 +52,11 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
+         'media' => [
+            'driver' => 'local',
+            'root'   => public_path('media'),
+        ],
+
     ],
 
     /*

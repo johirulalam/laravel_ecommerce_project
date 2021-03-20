@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
+
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Product extends Model
+class Product extends Model implements HasMedia
 {
     use HasFactory;
+    use InteractsWithMedia;
 
     public $guarded = [];
 
@@ -16,7 +21,7 @@ class Product extends Model
     {
     	parent:: boot();
     	static::creating(function ($product){
-    		$product->slug = str_slug($product->title);
+    		$product->slug = Str::slug($product->title);
     	});
     }
 

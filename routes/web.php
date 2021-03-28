@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FrontController;
+use App\Http\Controllers\Frontend\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +13,17 @@ use App\Http\Controllers\FrontController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.homepage');
+// Route::get('/', function () {
+//     return view('frontend.homepage');
+
+// });
+
+
+
+
+Route::group(['namespace' => 'App\Http\Controllers\Frontend'] , function(){
+
+	Route::get('/', [HomeController::class, 'showhomepage'])->name('frontend.homepage');
+	Route::get('/product/{slug}', [HomeController::class, 'product_details'])->name('product.details');
 
 });
-

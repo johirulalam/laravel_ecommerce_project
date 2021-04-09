@@ -115,7 +115,17 @@
                                                     <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a></li>
                                                 <li>
 
-                                                    <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
+                                                <form action="{{route('cart.add')}}" method="post">
+                                                 @csrf
+                                                 <input type="hidden" name="product_id" value="{{$product->id}}">
+                                               <button class="btn btn--e-brand-b-2" type="submit">
+                                                   <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                               </button>
+                                              </form>
+<!-- 
+                                                    <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a> -->
+                                                    </li>
                                                 <li>
 
                                                     <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
@@ -128,18 +138,24 @@
 
                                     <span class="product-o__category">
 
-                                        <a href="shop-side-version-2.html">{{$product->name}}</a></span>
+                                        <a href="{{route('category_products', $product->category_name)}}">{{$product->category_name}}</a></span>
 
                                     <span class="product-o__name">
 
-                                        <a href="{{ route('product.details', $product->slug)}}">{{$product->title}}</a></span>
+                                        <a href="{{ route('product.details', $product->product_slug)}}">{{$product->product_title}}</a></span>
                                     <div class="product-o__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
 
                                         <span class="product-o__review">(23)</span></div>
 
-                                    <span class="product-o__price">$125.00
+                               @if(empty($product->product_offer_price))
 
-                                        <span class="product-o__discount">$160.00</span></span>
+                                    <span class="product-o__price">BDT {{ $product->product_price }}
+                               @else   
+                                    <span class="product-o__price">BDT {{ $product->product_offer_price }}          
+
+                                    <span class="product-o__discount">BDT {{ $product->product_price }}</span>
+                               @endif
+                                    </span>
                                 </div>
                             </div>   
                             @endforeach       

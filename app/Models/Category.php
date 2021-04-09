@@ -18,7 +18,7 @@ class Category extends Model
     {
         parent::boot();
         static::creating(function($category){
-            $category->slug = Str::slug($category->name);
+            $category->category_slug = Str::slug($category->category_name);
         });
     }
 

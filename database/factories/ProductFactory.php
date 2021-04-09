@@ -24,10 +24,10 @@ class ProductFactory extends Factory
     {
         return [
             //
-            'category_id' => Category::all()->random()->id,
-            'title'       => $this->faker->unique()->text(25),
-            'description' => $this->faker->text(),
-            'price'       => $this->faker->numberBetween(100, 1000),
+            'category_id'         => Category::all()->random()->id,
+            'product_title'       => $this->faker->unique()->text(25),
+            'product_description' => $this->faker->text(),
+            'product_price'       => $this->faker->numberBetween(100, 1000),
         ];
     }
 }

@@ -23,8 +23,8 @@ class CategoryFactory extends Factory
     {
         return [
             //
-            'name' => $this->faker->unique()->colorName,
-            'banner'=> $this->faker->imageUrl(),
+            'category_name' => $this->faker->unique()->colorName,
+            'category_banner'=> $this->faker->imageUrl(),
             // 'parent_cat_id' => $this->faker->numerify('##'),
         ];
     }

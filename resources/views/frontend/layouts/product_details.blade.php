@@ -85,11 +85,11 @@
                             <div class="pd-detail">
                                 <div>
 
-                                    <span class="pd-detail__name">{{$product_details->title}}</span></div>
+                                    <span class="pd-detail__name">{{$product_details->product_title}}</span></div>
                                 <div>
                                     <div class="pd-detail__inline">
 
-                                        <span class="pd-detail__price">BDT {{$product_details->price}}</span>
+                                        <span class="pd-detail__price">BDT {{$product_details->product_price}}</span>
 
                                         <span class="pd-detail__discount">(76% OFF)</span><del class="pd-detail__del">$28.97</del></div>
                                 </div>
@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="u-s-m-b-15">
 
-                                    <span class="pd-detail__preview-desc">{{$product_details->description}}</span></div>
+                                    <span class="pd-detail__preview-desc">{{$product_details->product_description}}</span></div>
                                 <div class="u-s-m-b-15">
                                     <div class="pd-detail__inline">
 
@@ -148,92 +148,14 @@
                                     </ul>
                                 </div>
                                 <div class="u-s-m-b-15">
-                                    <form class="pd-detail__form">
-                                        <div class="u-s-m-b-15">
-
-                                            <span class="pd-detail__label u-s-m-b-8">Color:</span>
-                                            <div class="pd-detail__color">
-                                                <div class="color__radio">
-
-                                                    <input type="radio" id="jet" name="color" checked>
-
-                                                    <label class="color__radio-label" for="jet" style="background-color: #333333"></label></div>
-                                                <div class="color__radio">
-
-                                                    <input type="radio" id="folly" name="color">
-
-                                                    <label class="color__radio-label" for="folly" style="background-color: #FF0055"></label></div>
-                                                <div class="color__radio">
-
-                                                    <input type="radio" id="yellow" name="color">
-
-                                                    <label class="color__radio-label" for="yellow" style="background-color: #FFFF00"></label></div>
-                                                <div class="color__radio">
-
-                                                    <input type="radio" id="granite-gray" name="color">
-
-                                                    <label class="color__radio-label" for="granite-gray" style="background-color: #605F5E"></label></div>
-                                                <div class="color__radio">
-
-                                                    <input type="radio" id="space-cadet" name="color">
-
-                                                    <label class="color__radio-label" for="space-cadet" style="background-color: #1D3461"></label></div>
-                                            </div>
-                                        </div>
-                                        <div class="u-s-m-b-15">
-
-                                            <span class="pd-detail__label u-s-m-b-8">Size:</span>
-                                            <div class="pd-detail__size">
-                                                <div class="size__radio">
-
-                                                    <input type="radio" id="xs" name="size" checked>
-
-                                                    <label class="size__radio-label" for="xs">XS</label></div>
-                                                <div class="size__radio">
-
-                                                    <input type="radio" id="small" name="size">
-
-                                                    <label class="size__radio-label" for="xxl">Small</label></div>
-                                                <div class="size__radio">
-
-                                                    <input type="radio" id="medium" name="size">
-
-                                                    <label class="size__radio-label" for="medium">Medium</label></div>
-                                                <div class="size__radio">
-
-                                                    <input type="radio" id="large" name="size">
-
-                                                    <label class="size__radio-label" for="xxl">Large</label></div>
-                                                <div class="size__radio">
-
-                                                    <input type="radio" id="xl" name="size">
-
-                                                    <label class="size__radio-label" for="xl">XL</label></div>
-                                                <div class="size__radio">
-
-                                                    <input type="radio" id="xxl" name="size">
-
-                                                    <label class="size__radio-label" for="xxl">XXL</label></div>
-                                            </div>
-                                        </div>
-                                        <div class="pd-detail-inline-2">
-                                            <div class="u-s-m-b-15">
-
-                                                <!--====== Input Counter ======-->
-                                                <div class="input-counter">
-
-                                                    <span class="input-counter__minus fas fa-minus"></span>
-
-                                                    <input class="input-counter__text input-counter--text-primary-style" type="text" value="1" data-min="1" data-max="1000">
-
-                                                    <span class="input-counter__plus fas fa-plus"></span></div>
-                                                <!--====== End - Input Counter ======-->
-                                            </div>
-                                            <div class="u-s-m-b-15">
-
-                                                <button class="btn btn--e-brand-b-2" type="submit">Add to Cart</button></div>
-                                        </div>
-                                    </form>
+                                   
+                                    <div class="u-s-m-b-15">
+                                         <form action="{{route('cart.add')}}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{$product_details->id}}">
+                                            <button class="btn btn--e-brand-b-2" type="submit">Add to Cart</button>
+                                         </form>
+                                     </div>
                                 </div>
                                 <div class="u-s-m-b-15">
 

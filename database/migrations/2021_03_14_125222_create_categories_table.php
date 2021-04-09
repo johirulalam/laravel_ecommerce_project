@@ -15,10 +15,10 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 128)->unique();
-            $table->string('banner', 128)->nullable();
+            $table->string('category_name', 128)->unique();
+            $table->string('category_banner', 128)->nullable();
             $table->bigInteger('parent_cat_id')->nullable()->unsigned();
-            $table->string('slug', 128)->unique();
+            $table->string('category_slug', 128)->unique();
             $table->timestamps(); 
             $table->foreign('parent_cat_id')->references('id')->on('categories')->onDelete('cascade');
         });

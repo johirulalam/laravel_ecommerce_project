@@ -10,7 +10,7 @@
 
                         <!--====== Main Logo ======-->
 
-                        <a class="main-logo" href="index.html">
+                        <a class="main-logo" href="{{ route('frontend.homepage')}}">
 
                             <img src="images/logo/logo-1.png" alt=""></a>
                         <!--====== End - Main Logo ======-->
@@ -901,40 +901,11 @@
 
                                     @foreach($categories as $category)
                                     <li>
-                                        <a href="{{$category->slug}}">{{$category->name}}</a>
+                                        <a href="{{route('category_products', $category->category_slug)}}">{{$category->category_name}}</a>
                                     </li>
                                     @endforeach
 
-                                        <!--====== Dropdown ======-->
-
-                                        <span class="js-menu-toggle"></span>
-                                        <ul style="width:170px">
-                                            
-                                            <li class="has-dropdown has-dropdown--ul-left-100">
-
-                                                <a>Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:200px">
-                                                    <li>
-
-                                                        <a href="signin.html">Signin / Already Registered</a></li>
-                                                    <li>
-
-                                                        <a href="signup.html">Signup / Register</a></li>
-                                                    <li>
-
-                                                        <a href="lost-password.html">Lost Password</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-
-
-                                            
-                                        </ul>
-                                        <!--====== End - Dropdown ======-->
+    
                                     </li>
                                     
                                 </ul>

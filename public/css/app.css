@@ -703,8 +703,8 @@ body {
 
 .btn--e-brand-b-2 {
   color: #ffffff;
-  background-color: #ff4500;
-  border: 2px solid #ff4500;
+  background-color: white;
+  border: 2px solid white;
   transition: background-color 0.5s ease-in, border-color 0.5s ease-in; }
   .btn--e-brand-b-2:hover {
     background-color: #fa4400;
